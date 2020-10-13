@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.pokedexapp.ui.PokemonDetailsViewModel"/>
+        <variable
+            name="pokemon"
+            type="com.example.pokedexapp.data.model.PokemonDetails"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.PokemonDetailsFragment">
+
+        <ImageView
+            android:id="@+id/pokemon_detail_img"
+            android:layout_width="408dp"
+            android:layout_height="219dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_detail_name"
+            android:src="@{pokemon.pokemonSprites.toString()}" />
+
+        <TextView
+            android:id="@+id/pokemon_detail_name"
+            android:layout_width="226dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="32dp"
+            android:hint="Pokemon Name"
+            android:text="@{pokemon.pokemonName}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pokemon_detail_type_Title_txt"
+            android:layout_width="106dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:text="Type: "
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_detail_img" />
+
+        <TextView
+            android:id="@+id/pokemon_detail_types_txt"
+            android:layout_width="278dp"
+            android:layout_height="45dp"
+            android:hint="Grass, Fire, etc"
+            android:text="@{pokemon.pokemonType}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/pokemon_detail_type_Title_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.304"
+            app:layout_constraintStart_toEndOf="@+id/pokemon_detail_type_Title_txt" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_detail_type_Title_txt" />
+
+        <TextView
+            android:id="@+id/pokemon_detail_stat_title_txt"
+            android:layout_width="106dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="364dp"
+            android:text="Stats: "
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/pokemon_detail_stat_txt"
+            android:layout_width="278dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:text="TextView"
+            app:layout_constraintBaseline_toBaselineOf="@+id/pokemon_detail_stat_title_txt"
+            app:layout_constraintStart_toEndOf="@+id/pokemon_detail_stat_title_txt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
