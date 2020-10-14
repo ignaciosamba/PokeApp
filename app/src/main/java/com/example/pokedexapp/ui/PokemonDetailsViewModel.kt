@@ -59,6 +59,10 @@ class PokemonDetailsViewModel (private val repository: PokeDetailsRepository,
                 Timber.d(networkError)
             }
             if (pokemonDetails.value == null) {
+                // TODO: because the first thing is search into the database,
+                // the app always sets the _eventNetworkError as a true,
+                // and because of that there toast will always search.
+                // It must be fixed.
                 _eventNetworkError.value = true
             }
         }
